@@ -22,6 +22,7 @@ All in one checkout Tool request and browser based with multi-threading to autom
 - **Keyword Finder, auto add to cart and checkout** - Bot will find the keywords for each task, add the product to the cart and try and checkout, Current for EU only. 
 - **Multi threaded** - Support for multiple tasks at the same time to cop multiple items. 
 - **Task Creator** - Create tasks in quick succession to setup 5 minutes before the drop.
+- **Instore signups** - Create tasks for instore supreme london to be able to cop items.
 
 # Todo
 - [x] **Documentation**
@@ -37,6 +38,7 @@ All in one checkout Tool request and browser based with multi-threading to autom
 - [ ] **Recaptcha Harvesting**
 - [x] **Keyword Droplist in Help menu**
 - [ ] **US checkout Support**
+- [x] **Instore signups**
 - [ ] **Less RAM Usage**
 - [ ] **JXBrowser and PhantomJS Module support**
 - [x] **Each Task checking out different product with different billing**
@@ -45,6 +47,8 @@ All in one checkout Tool request and browser based with multi-threading to autom
 - [ ] **Custom Installer**
 - [ ] **Mac Support**
 - [x] **Splash screen at launch**
+- [x] **Image Scraper**
+- [ ] **Quick Tasks**
 
 # Install
 > - Download and **run the exe file as Administrator**, installer will automatically extract and install files to your local C drive in program files. Application is 32 bit. If you need any help contact my [Twitter](https://twitter.com/DrExpresso).
