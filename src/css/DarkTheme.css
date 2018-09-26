@@ -207,6 +207,7 @@
 	-fx-alignment: CENTER;
 }
 
+<<<<<<< HEAD
 .table-view{
 	-fx-control-inner-background-alt: -fx-control-inner-background ;
     -fx-table-cell-border-color: transparent;
@@ -217,6 +218,10 @@
 	 -fx-alignment: CENTER;
 	 -fx-text-fill: white;
 }
+=======
+/* Spaltenköpfe
+    Struktur column-header-background -> column-header */
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 
 .table-view .column-header-background{
     -fx-background-color: #393939;
@@ -296,7 +301,10 @@
     -fx-background-color: -fx-focus-color;
     -fx-text-fill: #ffffff;
 }
+<<<<<<< HEAD
 
 .button:default:hover {
     -fx-background-color: derive(-fx-focus-color,30%);
 }
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010

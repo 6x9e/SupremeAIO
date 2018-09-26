@@ -28,7 +28,10 @@ public class SupremeTask {
 	private final SimpleStringProperty checkedOut;
 	private final SimpleStringProperty reCaptchaToken;
 	private final SimpleStringProperty startTimer;
+<<<<<<< HEAD
 	private final SimpleStringProperty autoStart;
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 	private final SimpleStringProperty itemNotFound;
 	private final SimpleStringProperty errorOccured;
 	
@@ -56,12 +59,22 @@ public class SupremeTask {
 			this.reCaptchaToken = new SimpleStringProperty("Captcha required");
 			this.checkedOut = new SimpleStringProperty("Check your email");
 			this.startTimer = new SimpleStringProperty("Launching at: " + keywordInfo.getKeywordInfo().getStartTimer());
+<<<<<<< HEAD
 			this.autoStart = new SimpleStringProperty("Launching at: 11:00:00");
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 		}
 
 		public String getId( ) {
 			return id.get();
+<<<<<<< HEAD
 		}	
+=======
+		}
+		
+
+		
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 		
 		public SimpleStringProperty getIdProperty( ) {
 			return id;

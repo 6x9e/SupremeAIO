@@ -101,6 +101,10 @@ public class Selenium implements Runnable {
 		try (Writer file = new FileWriter(System.getProperty("user.dir")+ "/resources/Logs/" + "[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "] - Task= " +taskNumber+".txt")) {
 			fileName = file.toString();
 			file.flush();
+<<<<<<< HEAD
+=======
+			//controller.getConsole().appendText("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "]" + " - " + "Successfully created log file \n");
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 		}
 		
 		File f = new File(System.getProperty("user.dir")+ "/resources/Logs/");
@@ -117,7 +121,11 @@ public class Selenium implements Runnable {
 		printWriter.println("LOG [TASK: " + taskNumber + " -- " +  " Time: " + new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date()) + "]");
 		printWriter.println();
 		
+<<<<<<< HEAD
 		controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Running");
+=======
+		controller.statusColumnUpdateRunning();
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 				
 			//PROXY -- IP Authentication only 
 			ChromeOptions options = new ChromeOptions();		
@@ -149,6 +157,7 @@ public class Selenium implements Runnable {
 
 			//Launch method for finding keyword
 		
+<<<<<<< HEAD
 		try {
 			this.keywordFinder();
 			controller.getConsole().appendText("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "] - Task " + taskNumber +  " - Item Not Found! Retrying!  \n");
@@ -158,11 +167,27 @@ public class Selenium implements Runnable {
 			driver.close();
 			Thread.currentThread().interrupt();
 		}
+=======
+		
+			try {
+					this.keywordFinder();
+					controller.getConsole().appendText("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "]" + " - " + "Item Not Found! Retrying!  \n");
+			} catch (WebDriverException e) {
+				controller.statusColumnUpdateError();
+				controller.getConsole().appendText("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "]" + " - " + "Item Not Found! \n");
+				driver.close();
+				Thread.currentThread().interrupt();
+			}
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 				
 
 			//Error handler
 			if (driver.getCurrentUrl() == null) {
+<<<<<<< HEAD
 				controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Error occurred");
+=======
+				controller.statusColumnUpdateError();
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 				driver.quit();
 			}
 
@@ -171,6 +196,7 @@ public class Selenium implements Runnable {
 			try {
 				driver.get(finalURL);
 			} catch (WebDriverException e) {
+<<<<<<< HEAD
 				controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Error occurred");
 				driver.close();
 				Thread.currentThread().interrupt();
@@ -179,6 +205,16 @@ public class Selenium implements Runnable {
 			controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Item Found");
 			controller.getConsole().appendText("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "] - Task " + taskNumber + " - Item Found \n");
 			
+=======
+				controller.statusColumnUpdateError();
+				driver.close();
+				Thread.currentThread().interrupt();
+			}
+			
+			controller.statusColumnUpdateItemFound();
+			controller.getConsole().appendText("[" + new SimpleDateFormat("HH:mm:ss:SS").format(new Date()) + "] - " + "Task - Item Found \n");
+			
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 			
 			JavascriptExecutor js = (JavascriptExecutor) driver;
 			JavascriptExecutor billing_name_js = (JavascriptExecutor) driver;
@@ -186,7 +222,10 @@ public class Selenium implements Runnable {
 			JavascriptExecutor order_tel_js = (JavascriptExecutor) driver;
 			JavascriptExecutor order_address_js = (JavascriptExecutor) driver;
 			JavascriptExecutor order_postcode_js = (JavascriptExecutor) driver;
+<<<<<<< HEAD
 			JavascriptExecutor order_city_js = (JavascriptExecutor) driver;
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 			JavascriptExecutor order_card_js = (JavascriptExecutor) driver;
 			JavascriptExecutor order_cvv_js = (JavascriptExecutor) driver;
 			
@@ -201,12 +240,22 @@ public class Selenium implements Runnable {
 				printWriter.println("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "]" + " - " + "Size found");
 				dropdown.selectByVisibleText(size);
 				driver.findElement(By.name("commit")).click();
+<<<<<<< HEAD
 				controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Adding to cart...");
 				printWriter.println("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "]" + " - " + "Cart successful!");
 			} else {
 				for (int i = 0; i < retryCounter; i++) {
 					printWriter.println("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "]" + " - " + "Size not Found... Retrying in  3 seconds");
 					controller.getConsole().appendText("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "] - Task " + taskNumber  + " - Size not Found... Retrying in  3 seconds \n");
+=======
+				controller.statusColumnUpdateAddingToCart();
+				printWriter.println("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "]" + " - " + "Cart successful!");
+				controller.getConsole().appendText("[" + new SimpleDateFormat("HH:mm:ss:SS").format(new Date()) + "] - " + "Task - Cart successful! \n");
+			} else {
+				for (int i = 0; i < retryCounter; i++) {
+					printWriter.println("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "]" + " - " + "Size not Found... Retrying in  3 seconds");
+					controller.getConsole().appendText("[" + new SimpleDateFormat("HH:mm:ss:SS").format(new Date()) + "] - " + "Task - Size not Found... Retrying in  3 seconds \n");
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 					Thread.sleep(3000);
 					driver.navigate().refresh();
 				}
@@ -223,6 +272,7 @@ public class Selenium implements Runnable {
 
 			if (checkoutUrl.contains("checkout")) {
 				printWriter.println("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "]" + " - " + "Checking out");
+<<<<<<< HEAD
 				controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Checking out");
 				controller.getConsole().appendText("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "] - Task " + taskNumber + " - " + "Checking out \n");
 				
@@ -259,6 +309,43 @@ public class Selenium implements Runnable {
 				order_city_js.executeScript("document.getElementById('order_billing_city').setAttribute('value', '"+billingCity+"')");
 				order_card_js.executeScript("document.getElementById('cnb').setAttribute('value', '"+cardNumber+"')");
 				order_cvv_js.executeScript("document.getElementById('vval').setAttribute('value', '"+cardCvv+"')");
+=======
+				controller.statusColumnUpdateCheckingOut();
+				controller.getConsole().appendText("[" + new SimpleDateFormat("HH:mm:ss:SS").format(new Date()) + "] - " + "Task - Checking out \n");
+				
+				printWriter.close();
+
+				//Open JSON Parse file to get billing and shipping info				
+				JSONParser parser = new JSONParser();
+				
+				JSONObject a = (JSONObject) parser.parse(new FileReader(System.getProperty("user.dir")+ "/resources/json/" + profileLoader  +".json"));
+				
+				billingFirstName = (String) a.get("Fullname");
+				billingEmail = (String) a.get("Email");
+				telephone = (String) a.get("Telephone");
+				billingAddress = (String) a.get("Address");
+				billingCity  = (String) a.get("City");
+				billingPostcode  = (String) a.get("Postcode");
+				country = (String) a.get("Country");
+				cardType = (String) a.get("Card Type");
+				cardExpiry = (String) a.get("Card Expiry Month");
+				cardYear = (String) a.get("Card Expiry Year");
+				cardNumber = (String) a.get("Card Number");
+				cardCvv = (String) a.get("Card Security Code");
+
+				
+				//Check T&C box
+			//	WebElement element = driver.findElement(By.xpath("//*[@id=\"cart-cc\"]/fieldset/p/label/div/ins"));
+			//	js.executeScript("arguments[0].click();", element);
+			//	js.executeScript("document.getElementByClassName('order[terms]').setAttribute('selected', 'selected')");
+				billing_name_js.executeScript("document.getElementById('order_billing_name').setAttribute('value', 'John Doe')");
+				order_email_js.executeScript("document.getElementById('order_email').setAttribute('value', 'johndoe@gmail.com')");
+				order_tel_js.executeScript("document.getElementById('order_tel').setAttribute('value', '07899608391')");
+				order_address_js.executeScript("document.getElementById('bo').setAttribute('value', '1 Main Street')");
+				order_postcode_js.executeScript("document.getElementById('order_billing_zip').setAttribute('value', 'LE2 1LZ')");
+				order_card_js.executeScript("document.getElementById('cnb').setAttribute('value', '4658 5910 9812 8034')");
+				order_cvv_js.executeScript("document.getElementById('vval').setAttribute('value', '659')");
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 				
 				
 				//Select Country
@@ -290,25 +377,45 @@ public class Selenium implements Runnable {
 					Thread.sleep(checkoutDelay);
 					WebElement checkoutButton = driver.findElement(By.name("commit"));
 					js.executeScript("arguments[0].click();", checkoutButton);
+<<<<<<< HEAD
 					controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Captcha required");
 					controller.getConsole().appendText("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "] - Task " +taskNumber + " - " +  "Please solve captcha \n");
+=======
+					controller.statusColumnUpdateRecaptcha();
+					controller.getConsole().appendText("[" + new SimpleDateFormat("HH:mm:ss:SS").format(new Date()) + "] - " + "Task - Please solve captcha \n");
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 					Thread.currentThread().wait();
 				} else {
 					WebElement checkoutButton = driver.findElement(By.name("commit"));
 					js.executeScript("arguments[0].click();", checkoutButton);
+<<<<<<< HEAD
 					controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Captcha required");
 					controller.getConsole().appendText("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "] - Task " + taskNumber + " - " +  "Please solve captcha \n");
+=======
+					controller.statusColumnUpdateRecaptcha();
+					controller.getConsole().appendText("[" + new SimpleDateFormat("HH:mm:ss:SS").format(new Date()) + "] - " + "Task - Please solve captcha \n");
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 					Thread.currentThread().wait();
 				}
 				
 			} else {
 				printWriter.println("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "]" + " - " + "Checkout Failed");
+<<<<<<< HEAD
 				controller.getConsole().appendText("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "] - Task " + taskNumber + " - Checkout Failed \n");
 			}
 			
 			if(driver.getPageSource().contains("you will recieve a shipping confirmation with the tracking number")) {
 				printWriter.println("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "]" + " - " + " - Checked out");
 				controller.getConsole().appendText("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "] - Task " + taskNumber + " - Checked out! \n");
+=======
+				controller.getConsole().appendText("[" + new SimpleDateFormat("HH:mm:ss:SS").format(new Date()) + "] - " + "Task - Checkout Failed \n");
+			}
+			
+			if(driver.getPageSource().contains("you will recieve a shipping confirmation with the tracking number")) {
+				printWriter.println("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "]" + " - " + "Checked out");
+				controller.statusColumnUpdateCheckedOut();
+				controller.getConsole().appendText("[" + new SimpleDateFormat("HH:mm:ss:SS").format(new Date()) + "] - " + "Task - Checked out! \n");
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 			}
 	}
 	
@@ -334,8 +441,13 @@ public class Selenium implements Runnable {
 
 			int statusCode = response.statusCode();
 			
+<<<<<<< HEAD
 			if (!(statusCode == 200)) {
 				controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Website not reachable");
+=======
+			if (statusCode == 404) {
+				controller.statusColumnUpdateError();
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 				driver.quit();
 			}
 			
@@ -353,12 +465,20 @@ public class Selenium implements Runnable {
 					} 
 					else  {
 						printWriter.println("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "]" + " - " + "Item Not Found! Retrying!");
+<<<<<<< HEAD
 						controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Item not found");
+=======
+						controller.statusColumnUpdateItemNotFound();
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 					}
 				}
 			} catch (WebDriverException e) {
 				printWriter.println("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "]" + " - " + "Item Not Found! Retrying!");
+<<<<<<< HEAD
 				controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Error occurred");
+=======
+				controller.statusColumnUpdateError();
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 			}
 	
 			// Get the URL from the HashMap, clean it and save it in finalURL
@@ -369,16 +489,28 @@ public class Selenium implements Runnable {
 			}
 			//Catch any errors to quite the chrome driver
 		} catch (NullPointerException e) {
+<<<<<<< HEAD
 			controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Error occurred");
 			e.printStackTrace();
 	        driver.quit();
 	    } catch (HttpStatusException e) {
 	    	controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Error occurred");
+=======
+			controller.statusColumnUpdateError();
+			e.printStackTrace();
+	        driver.quit();
+	    } catch (HttpStatusException e) {
+	    	controller.statusColumnUpdateError();
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 	        e.printStackTrace();
 	        driver.quit();
 	    } catch (IOException e) {
 	        e.printStackTrace();
+<<<<<<< HEAD
 	        controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Error occurred");
+=======
+	        controller.statusColumnUpdateError();
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 	        driver.quit();
 	    }
 	}
@@ -388,7 +520,11 @@ public class Selenium implements Runnable {
 		try {
 			this.main(null);
 		} catch (IOException | InterruptedException | ParseException e) {
+<<<<<<< HEAD
 			controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Error occurred");
+=======
+		    controller.statusColumnUpdateError();
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 			e.printStackTrace();
 		}
 	}

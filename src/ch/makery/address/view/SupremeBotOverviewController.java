@@ -5,7 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
+<<<<<<< HEAD
 import java.lang.reflect.Method;
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,16 +20,22 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import org.controlsfx.control.Notifications;
+<<<<<<< HEAD
 import org.controlsfx.control.ToggleSwitch;
 import org.controlsfx.control.textfield.CustomTextField;
 import org.controlsfx.control.textfield.TextFields;
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 
 import ch.makery.address.MainApp;
 import ch.makery.address.model.ENUMstatus;
 import ch.makery.address.model.Person;
 import ch.makery.address.model.SupremeTask;
 import ch.makery.address.model.keywordInfo;
+<<<<<<< HEAD
 import ch.makery.address.selenium.InstoreRegistrationSelenium;
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 import ch.makery.address.selenium.Request;
 import ch.makery.address.selenium.Selenium;
 import javafx.application.Platform;
@@ -47,20 +56,30 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+<<<<<<< HEAD
+=======
+import javafx.scene.control.ScrollBar;
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+<<<<<<< HEAD
 import javafx.scene.control.cell.PropertyValueFactory;
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+<<<<<<< HEAD
 import javafx.scene.paint.Color;
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -120,6 +139,8 @@ public class SupremeBotOverviewController {
 	@FXML
 	private TableColumn<SupremeTask, String> actionColumn;
 	@FXML
+	private TableColumn<SupremeTask, String> actionColumn;
+	@FXML
 	private RadioButton autocheck;
 	@FXML
 	public ToggleSwitch tglSwitchGui;
@@ -136,7 +157,11 @@ public class SupremeBotOverviewController {
 	private ObservableList<String> sizeList = FXCollections.observableArrayList("Small", "Medium", "Large", "XLarge", "---------", "onesize",
 			"---------", "30", "32", "34", "36", "38", "40");
 
+<<<<<<< HEAD
 	private ObservableList<String> statusList = FXCollections.observableArrayList("all", "Jackets", "shirts", "tops_sweaters",
+=======
+	private ObservableList<String> statusList = FXCollections.observableArrayList("all", "jackets", "shirts", "tops_sweaters",
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 			"sweatshirts", "pants", "shorts", "t-shirts", "hats", "bags", "accessories", "skate");
 
 	private ObservableList<String> modeList = FXCollections.observableArrayList("Browser", "Requests");
@@ -222,6 +247,7 @@ public class SupremeBotOverviewController {
 	}
 	
 	@FXML
+<<<<<<< HEAD
 	private void handleSlackWebhookDialog(ActionEvent action) throws FileNotFoundException {
 		mainApp.SlackWebhookDialog();
 	}
@@ -232,6 +258,8 @@ public class SupremeBotOverviewController {
 	}
 	
 	@FXML
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 	private void handleKeywordWindow(ActionEvent action) throws FileNotFoundException {
 		//Open Keyword Window
 		mainApp.keywordDialog();
@@ -285,6 +313,10 @@ public class SupremeBotOverviewController {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+<<<<<<< HEAD
+=======
+			
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 		
 			
 			idColumn.setCellValueFactory(cellData -> cellData.getValue().getIdProperty());
@@ -311,6 +343,7 @@ public class SupremeBotOverviewController {
 
 			colour.setItems(colourList);
 			colour.getSelectionModel().select(0);
+<<<<<<< HEAD
 			 // Table cell coloring
 	        statusColumn.setCellFactory(new Callback<TableColumn<SupremeTask, String>, TableCell<SupremeTask, String>>() {
 	            @Override
@@ -405,6 +438,11 @@ public class SupremeBotOverviewController {
 		    		}
 		        }
 		    });
+=======
+			
+			this.consoleWriter("[" + new SimpleDateFormat("HH:mm:ss:SS").format(new Date()) + "] - " + "Initialized Bot \n");
+			
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 			
 			//Delete selected row
 			supremeTask.setRowFactory( tv -> {
@@ -439,6 +477,7 @@ public class SupremeBotOverviewController {
 			             grid.setHgap(10);
 			             grid.setVgap(10);
 			             grid.setPadding(new Insets(16));
+<<<<<<< HEAD
 			             grid.setStyle(
 			             		"  -fx-body-color: linear-gradient(to bottom, #FAFAFA, #EAEAEA);\r\n" + 
 			             		"  -fx-background-color: \r\n" + 
@@ -483,6 +522,22 @@ public class SupremeBotOverviewController {
 			             buttons.setSpacing(20);
 
 			             grid.add(buttons, 0, 7, 2, 1);
+=======
+			             			             
+
+
+			             grid.addRow(0, new Label("Item:"), itemTextField);
+			             grid.addRow(1, new Label("Category:"), categoryTextField);
+			             grid.addRow(2, new Label("Size:"), sizeTextField);
+			             grid.addRow(3, new Label("Colour:"), colourTextField);
+			             grid.addRow(4, new Label("Billing profile:"), profiles);
+			             grid.addRow(5, new Label("Mode:"), modes);		
+			    
+
+			             Button okButton = new Button("OK");
+
+			             grid.add(okButton, 0, 7, 2, 1);
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 			             
 			             ColumnConstraints leftCol = new ColumnConstraints();
 			             leftCol.setHgrow(Priority.NEVER);
@@ -491,16 +546,23 @@ public class SupremeBotOverviewController {
 			             rightCol.setHgrow(Priority.SOMETIMES);
 			             grid.getColumnConstraints().addAll(leftCol, rightCol);
 			             GridPane.setHalignment(okButton, HPos.CENTER);
+<<<<<<< HEAD
 			             
 			             grid.getColumnConstraints().add(col1Constraints);
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 
 			             Scene scene = new Scene(grid);
 			             Stage stage = new Stage();
 
+<<<<<<< HEAD
 			             okButton.setOnAction(e -> System.out.println("sd"));
 			             
 			            
 			             cancelButton.setOnAction(e -> stage.hide() );
+=======
+			             okButton.setOnAction(e -> stage.hide());
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 			             itemTextField.setOnAction(e -> stage.hide());
 			             categoryTextField.setOnAction(e -> stage.hide());
 			             sizeTextField.setOnAction(e -> stage.hide());
@@ -536,7 +598,11 @@ public class SupremeBotOverviewController {
 	}
 	
 
+<<<<<<< HEAD
 	public void addButtonToTable() {
+=======
+	private void addButtonToTable() {
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 
 		Callback<TableColumn<SupremeTask, String>, TableCell<SupremeTask, String>> cellFactory = new Callback<TableColumn<SupremeTask, String>, TableCell<SupremeTask, String>>() {
 			@Override
@@ -553,6 +619,7 @@ public class SupremeBotOverviewController {
 				
 					private final Button startTasks = new Button("", imageView);
 					{
+<<<<<<< HEAD
 						startTasks.setStyle("-fx-background-color: transparent;  -fx-border-color: none;");
 						startTasks.setOnAction((ActionEvent event) -> {
 							
@@ -566,6 +633,15 @@ public class SupremeBotOverviewController {
 							 else if (this.getTableView().getItems().get(getIndex()).toString().contains("Browser")) {
 								singleBrowserTask = new Thread(new Selenium(passableController,
 										Integer.parseInt(this.getTableView().getItems().get(getIndex()).getId()),
+=======
+						startTasks.setStyle("-fx-background-color: transparent;");
+						startTasks.setOnAction((ActionEvent event) -> {
+							
+							consoleWriter("[" + new SimpleDateFormat("HH:mm:ss:SS").format(new Date()) + "] - " + "Task started \n");
+							if (this.getTableView().getItems().get(getIndex()).toString().contains("Browser")) {
+								singleBrowserTask = new Thread(new Selenium(passableController,
+										supremeTask.getItems().size() + 1,
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 										this.getTableView().getItems().get(getIndex()).getIem().toString(),
 										this.getTableView().getItems().get(getIndex()).getSize().toString(),
 										this.getTableView().getItems().get(getIndex()).getCategory().toString(),
@@ -574,7 +650,11 @@ public class SupremeBotOverviewController {
 								singleBrowserTask.start();
 							} else if (this.getTableView().getItems().get(getIndex()).toString().contains("Request")) {
 								singleBrowserTask = new Thread(new Selenium(passableController,
+<<<<<<< HEAD
 										Integer.parseInt(this.getTableView().getItems().get(getIndex()).getId()),
+=======
+										supremeTask.getItems().size() + 1,
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 										this.getTableView().getItems().get(getIndex()).getIem().toString(),
 										this.getTableView().getItems().get(getIndex()).getSize().toString(),
 										this.getTableView().getItems().get(getIndex()).getCategory().toString(),
@@ -594,12 +674,22 @@ public class SupremeBotOverviewController {
 					private final Button stopTasks = new Button("", stopImage);
 					{
 
+<<<<<<< HEAD
 						stopTasks.setStyle("-fx-background-color: transparent;  -fx-border-color: none;");
 						stopTasks.setOnAction((ActionEvent event) -> {
 							singleBrowserTask.currentThread().interrupt();
 							browser.killBrowser();
 							returnTasks().getItems().get(getIndex()).setStatus("Stopped");
 							returnTasks().refresh();
+=======
+						stopTasks.setStyle("-fx-background-color: transparent;");
+						stopTasks.setOnAction((ActionEvent event) -> {
+							singleBrowserTask.currentThread().interrupt();
+							browser.killBrowser();
+							statusColumn.setCellValueFactory(cellData -> cellData.getValue().getStatusProperty());
+							statusColumn.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+							supremeTask.refresh();
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 						});
 					}
 					HBox pane = new HBox(startTasks, stopTasks);
@@ -648,6 +738,11 @@ public class SupremeBotOverviewController {
 		supremeTask.setPlaceholder(new Label(""));
 		taskCounter = 1;
 		threads.clear();
+<<<<<<< HEAD
+=======
+		
+		this.showNotication();
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 	}
 	
 	//Status Column Updates
@@ -766,6 +861,10 @@ public class SupremeBotOverviewController {
 			//Add task to table
 			for (int i = 0; i < noOfTasksID; i++) {
 				mainApp.getTaskData().add(new SupremeTask(taskCounter.toString(), keywordsID, sizeID ,colourID , catagoryID, profileID, ENUMstatus.Ready.toString(), modeID));
+<<<<<<< HEAD
+=======
+				statusColumn.setStyle("-fx-text-fill: red; -fx-font-weight: bold;");
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 				taskCounter = supremeTask.getItems().size()  + 1 ;
 
 	            
@@ -791,12 +890,20 @@ public class SupremeBotOverviewController {
 				if (supremeTask.getItems().toString().contains("Browser")) {
 					//Iterate through the table, create a thread and pass in task information from each row
 					for (SupremeTask task :supremeTask.getItems()) {
+<<<<<<< HEAD
 						Thread taskInformation  = new Thread(new Selenium(passableController, Integer.parseInt(task.getId()) ,task.getIem().toString(), task.getSize(), task.getCategory(), task.getColour(), task.getBillingProfile()));
+=======
+						Thread taskInformation  = new Thread(new Selenium(passableController, supremeTask.getItems().size() + 1 ,task.getIem().toString(), task.getSize(), task.getCategory(), task.getColour(), task.getBillingProfile()));
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 						this.threads.add(taskInformation);
 					}
 				} else if (supremeTask.getItems().toString().contains("Request")) {
 					for (SupremeTask task :supremeTask.getItems()) {
+<<<<<<< HEAD
 						Thread taskInformation  = new Thread(new Request(passableController, Integer.parseInt(task.getId()) ,task.getIem().toString(), task.getSize(), task.getCategory(), task.getColour(), task.getBillingProfile()));
+=======
+						Thread taskInformation  = new Thread(new Request(passableController, supremeTask.getItems().size() + 1 ,task.getIem().toString(), task.getSize(), task.getCategory(), task.getColour(), task.getBillingProfile()));
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 						this.threads.add(taskInformation);
 					}
 				}
@@ -821,7 +928,10 @@ public class SupremeBotOverviewController {
 				Timer timer = new Timer();
 				timer.schedule(new schedulerDispatch(), date);
 				this.consoleWriter("[" + new SimpleDateFormat("HH:mm:ss:SS").format(new Date()) + "] - " + "Tasks - Waiting for countdown: " + date + "\n");
+<<<<<<< HEAD
 			
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 		}
 		
 		//Change column status to 'running'
@@ -829,6 +939,7 @@ public class SupremeBotOverviewController {
 			statusColumn.setCellValueFactory(cellData -> cellData.getValue().getStartTimerProperty());
 			statusColumn.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
 			supremeTask.refresh();
+<<<<<<< HEAD
 		}
 	}
 	
@@ -880,6 +991,52 @@ public class SupremeBotOverviewController {
         Method m = TextFields.class.getDeclaredMethod("setupClearButtonField", TextField.class, ObjectProperty.class);
         m.setAccessible(true);
         m.invoke(null, customTextField, customTextField.rightProperty());
+=======
+		} else if (startTimer == false) {
+			statusColumn.setCellValueFactory(cellData -> cellData.getValue().getStatusRunningProperty());
+			statusColumn.setStyle("-fx-text-fill: green; -fx-font-weight: bold;");
+			supremeTask.refresh();
+		}
+	}
+	
+	
+	//Method for timed tasks
+	public class schedulerDispatch extends TimerTask {
+		public void run() {
+			if (supremeTask.getItems().toString().contains("Browser")) {
+				for (SupremeTask task :supremeTask.getItems()) {
+					Thread taskInformation  = new Thread(new Selenium(passableController, supremeTask.getItems().size() + 1 ,task.getIem().toString(), task.getSize(), task.getCategory(), task.getColour(), task.getBillingProfile()));
+					threads.add(taskInformation);
+				}
+			} else if (supremeTask.getItems().toString().contains("Requests")) {
+				for (SupremeTask task :supremeTask.getItems()) {
+					Thread taskInformation  = new Thread(new Request(passableController, supremeTask.getItems().size() + 1 ,task.getIem().toString(), task.getSize(), task.getCategory(), task.getColour(), task.getBillingProfile()));
+					threads.add(taskInformation);
+				}						
+			}
+			
+			for (Iterator<Thread> itr = threads.listIterator(); itr.hasNext();) {
+	            Thread thread = itr.next();
+	            thread.start();
+	        }
+			
+			//Clear the threads for the next run
+			threads.clear();
+		}
+	}
+	
+	public void showNotication() {
+				
+		Notifications notificationBuilder = Notifications.create()
+				.title("Download Complete")
+				.text("Saved to home/downloads")
+				.graphic(new ImageView(new Image("file:" + System.getProperty("user.dir") + "/resources/images/checked.png")))
+				.hideAfter(Duration.seconds(5))
+				.position(Pos.BOTTOM_RIGHT);
+		
+		notificationBuilder.darkStyle();
+		notificationBuilder.show();
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 	}
 	
 

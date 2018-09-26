@@ -42,10 +42,13 @@
 
 .table-view .table-row:hover {
    -fx-cursor: hand;
+<<<<<<< HEAD
 }
 
 .button {
 	 -fx-cursor: hand;
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 }
 
 .table-view .column-header .label {
@@ -102,6 +105,7 @@
     -fx-background-radius: 20;
      -fx-alignment: center;
       -fx-background: #F9F9F9;
+<<<<<<< HEAD
 }
 
 .table-view *.increment-button,
@@ -111,6 +115,9 @@
 {
     -fx-padding: 0;
     -fx-shape: "";
+=======
+      
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 }
 
 .table-column {

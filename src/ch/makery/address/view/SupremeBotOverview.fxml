@@ -36,14 +36,18 @@
                         <MenuItem mnemonicParsing="false" onAction="#handleRecaptchaWindow" text="Recaptcha Harvester" />
                         <MenuItem mnemonicParsing="false" onAction="#handleStartTimerDialog" text="Start Time" />
                         <MenuItem mnemonicParsing="false" onAction="#handleCheckoutDelayDialog" text="Checkout Delay" />
+<<<<<<< HEAD
                         <MenuItem mnemonicParsing="false" onAction="#handleInstoreRegistrationDialog" text="Instore Registration" />
                         <MenuItem mnemonicParsing="false" onAction="#handleSlackWebhookDialog" text="Slack Webhook" />
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
                     <MenuItem mnemonicParsing="false" onAction="#handleExitButton" text="Exit" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
                     <MenuItem mnemonicParsing="false" onAction="#handleKeywordWindow" text="Keywords" />
+<<<<<<< HEAD
                         <MenuItem mnemonicParsing="false" onAction="#checkForUpdates" text="Check for updates" />
                         <Menu mnemonicParsing="false" text="Theme">
                            <items>
@@ -51,10 +55,19 @@
                               <MenuItem mnemonicParsing="false" onAction="#toggleClearTheme" text="Clear Theme" />
                            </items>
                         </Menu>
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
                         <MenuItem mnemonicParsing="false" onAction="#handleAboutWindow" text="About" />
                   </items>
                 </Menu>
                   <Menu mnemonicParsing="false" text="Image Scraper">
+<<<<<<< HEAD
+=======
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleImageScraper" text="Unspecified Action" />
+                     </items></Menu>
+                  <Menu mnemonicParsing="false" text="Theme">
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
                      <items>
                         <MenuItem mnemonicParsing="false" onAction="#handleImageScraper" text="Open" />
                      </items></Menu>

@@ -6,14 +6,20 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.Writer;
+<<<<<<< HEAD
 import java.net.HttpCookie;
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 
 import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
@@ -42,9 +48,14 @@ public class Request implements Runnable {
 	private HttpURLConnection mainConnection;
 	
 	//Variables
+<<<<<<< HEAD
 	private final String mainShop = "https://www.supremenewyork.com";
 	private final String mobile_stock = "https://www.supremenewyork.com/mobile_stock.json";
 	private final String checkout_url = "https://www.supremenewyork.com/checkout";
+=======
+	private final String mainShop = "http://www.supremenewyork.com";
+	private final String mobile_stock = "http://www.supremenewyork.com/mobile_stock.json";
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 
 	//Variants from product data
 	private String keywordProductID;
@@ -77,7 +88,11 @@ public class Request implements Runnable {
 	public void main(String[] args) throws IOException {
 		
 		//Ensure status column is update
+<<<<<<< HEAD
 		controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Running");
+=======
+		controller.statusColumnUpdateRunning();
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 		
 		//Create log file
 		this.log_creator();
@@ -94,8 +109,11 @@ public class Request implements Runnable {
 		
 		//Create POST Request to add the item to the cart
 		this.add_to_cart();
+<<<<<<< HEAD
 		
 		this.checkout();
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 	}
 	
 	public void mobile_stock_checker() throws JSONException, MalformedURLException, IOException {
@@ -145,14 +163,22 @@ public class Request implements Runnable {
 		}
 	
 		//Console and Status update
+<<<<<<< HEAD
 		controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Fetching variants");
+=======
+		controller.statusColumnUpdateFetchingVariants();
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 		controller.getConsole().appendText("[" + new SimpleDateFormat("HH:mm:ss:SS").format(new Date()) + "] - " + "Task - Fetching variants \n");
 	}
 
 		
 	public void add_to_cart() throws IOException {
 
+<<<<<<< HEAD
 		URL cartPost = new URL("https://www.supremenewyork.com/shop/" + keywordProductID + "/add");
+=======
+		URL cartPost = new URL("http://www.supremenewyork.com/shop/" + keywordProductID + "/add");
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 
 		// Create POST Request
 		mainConnection = (HttpURLConnection) cartPost.openConnection();
@@ -170,6 +196,7 @@ public class Request implements Runnable {
 		mainConnection.setRequestProperty("style", keyword_style_colour);
 		mainConnection.setRequestProperty("size", keyword_size);
 		mainConnection.setRequestProperty("commit", "add+to+basket");
+<<<<<<< HEAD
 		mainConnection.setRequestProperty("Cookie", "1537904375880; pooky=76dca13a-1559-43d9-a5df-dad0fe1a7da2; pooky_ok=eyJ0b2hydV9vayI6IHRydWUsICJlbmFibGVkIjogdHJ1ZSwgIm1zX2RyYWciOiJvZmYifQ");
 		mainConnection.connect();
 		
@@ -177,6 +204,11 @@ public class Request implements Runnable {
 		List<HttpCookie> cookies = HttpCookie.parse(cookiesHeader);
 		
 		System.out.println(cookies);
+=======
+		
+		mainConnection.connect();
+		
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 		//Get Page Source and print it
 		BufferedReader r = new BufferedReader(new InputStreamReader(mainConnection.getInputStream(), Charset.forName("UTF-8")));
 
@@ -193,9 +225,21 @@ public class Request implements Runnable {
 			System.out.println(mainConnection.getResponseCode());
 			
 			//Console and Status update
+<<<<<<< HEAD
 			controller.returnTasks().getItems().get(taskNumber - 1).setStatus("Adding to cart...");
 			controller.getConsole().appendText("[" + new SimpleDateFormat("HH:mm:ss:SS").format(new Date()) + "] - " + "Task - Adding to cart \n");
 		}
+=======
+			controller.statusColumnUpdateAddingToCart();
+			controller.getConsole().appendText("[" + new SimpleDateFormat("HH:mm:ss:SS").format(new Date()) + "] - " + "Task - Adding to cart \n");
+		}
+		
+		try {
+			Thread.currentThread().wait();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 	}
 	
 	public void checkout() throws IOException {
@@ -203,6 +247,7 @@ public class Request implements Runnable {
 
 		mainConnection = (HttpURLConnection) cartPost.openConnection();
 
+<<<<<<< HEAD
 		// Get Page Source and print it
 		BufferedReader r = new BufferedReader(new InputStreamReader(mainConnection.getInputStream(), Charset.forName("UTF-8")));
 
@@ -227,4 +272,18 @@ public class Request implements Runnable {
 		FileWriter rawLogOutput = new FileWriter(System.getProperty("user.dir")+ "/resources/Logs/Log_Task_1.txt");
 		printWriter = new PrintWriter(rawLogOutput);
 	}
+=======
+	
+	public void log_creator() throws IOException {
+		//Create Log File
+		try (Writer file = new FileWriter(System.getProperty("user.dir")+ "/resources/Logs/" + "/Log_Task_" + "1" + ".txt")) {
+			file.flush();
+			controller.getConsole().appendText("[" + new SimpleDateFormat("HH.mm.ss.SSS").format(new Date()) +  "]" + " - " + "Successfully created log file \n");
+		}
+				
+		//Start the print writer to Log to the file
+		FileWriter rawLogOutput = new FileWriter(System.getProperty("user.dir")+ "/resources/Logs/Log_Task_1.txt");
+		printWriter = new PrintWriter(rawLogOutput);
+	}
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 }

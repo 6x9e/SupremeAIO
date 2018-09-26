@@ -12,9 +12,13 @@ import java.util.logging.Logger;
 
 import ch.makery.address.model.SupremeTask;
 import ch.makery.address.model.keywordInfo;
+<<<<<<< HEAD
 import ch.makery.address.view.SlackWebhookController;
 import ch.makery.address.view.ImageScrapperController;
 import ch.makery.address.view.InstoreRegistrationController;
+=======
+import ch.makery.address.view.ImageScrapperController;
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 import ch.makery.address.view.ProfileCreatorController;
 import ch.makery.address.view.SupremeBotOverviewController;
 import ch.makery.address.view.keywordController;
@@ -47,9 +51,12 @@ public class MainApp extends Application {
 	private Stage primaryStage;
 	private ObservableList<SupremeTask> taskData = FXCollections.observableArrayList();
 	
+<<<<<<< HEAD
 	public Scene instoreScene;
 	public Scene slackScene;
 	
+=======
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 	private SupremeBotOverviewController botController;
 	private ProfileCreatorController profileController;
 	private reCaptchaController recaptchaController;
@@ -108,17 +115,26 @@ public class MainApp extends Application {
 			dialogue.initModality(Modality.NONE);
 			dialogue.initOwner(primaryStage);
 
+<<<<<<< HEAD
+=======
+			String css = this.getClass().getResource("/css/ProfileTheme.css").toExternalForm();
+
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 			profileCreator = new Scene(page);
 			dialogue.setScene(profileCreator);
 			dialogue.getIcons()
 					.add(new Image("file:" + System.getProperty("user.dir") + "/resources/images/" + "edit.png"));
 			dialogue.setResizable(false);
+<<<<<<< HEAD
 			
 			if (botController.tglSwitchGui.isSelected()) {
 				profileCreator.getStylesheets().add(getClass().getResource("/css/ProfileThemeDark.css").toExternalForm());
 			} else {
 				profileCreator.getStylesheets().add(getClass().getResource("/css/ProfileTheme.css").toExternalForm());		  
 			}
+=======
+			profileCreator.getStylesheets().add(css);
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 			
 			profileController = loader.getController();
 			profileController.setDialogStage(dialogue);
@@ -217,6 +233,7 @@ public class MainApp extends Application {
 	}
 	
 	public void showAboutWindow() {
+<<<<<<< HEAD
 		String information = "Version: 1.5.0.0";
 		String updates = 
 				  "+ Each status message updates according to task "
@@ -230,6 +247,16 @@ public class MainApp extends Application {
 				+ "\n+ Added toggle switch for easy theme change "
 				+ "\n+ Fixed keyword dialog "
 				+ "\n+ Added update checker";
+=======
+		String information = "Version: 1.4.0.0";
+		String updates = 
+				  "\n+ Added start and top buttons for individual tasks "
+				+ "\n+ Added action column "
+				+ "\n+ New About window dialog showing updates and version info "
+				+ "\n+ Delete a row by double clicking "
+				+ "\n+ Fixed log output for each task "
+				+ "\n+ Added slider for theme switcher";
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 				
 		
 		Alert alert = new Alert(AlertType.INFORMATION);
@@ -280,9 +307,17 @@ public class MainApp extends Application {
 		ImageScrapperController controller = new ImageScrapperController();
 		
 		Stage dialogStage = new Stage();
+<<<<<<< HEAD
 		dialogStage.initModality(Modality.NONE);
 		String css = this.getClass().getResource("/css/ClearTheme.css").toExternalForm();
 		dialogStage.getIcons().add(new Image(this.getClass().getResource("/resources/images/imageScrapper.png").toString()));
+=======
+		dialogStage.setTitle("Keywords");
+		dialogStage.initModality(Modality.NONE);
+		dialogStage.getIcons().add(
+				new Image("file:" + System.getProperty("user.dir") + "/resources/images/" + "keyword.ico"));
+		String css = this.getClass().getResource("/css/ClearTheme.css").toExternalForm();
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 		dialogStage.initOwner(primaryStage);
 		
 		
@@ -304,6 +339,7 @@ public class MainApp extends Application {
 			String css = this.getClass().getResource("/css/ClearTheme.css").toExternalForm();
 			dialogStage.initOwner(primaryStage);
 			Scene scene = new Scene(page);
+<<<<<<< HEAD
 			
 			dialogStage.setScene(scene);
 			dialogStage.show();
@@ -341,11 +377,17 @@ public class MainApp extends Application {
 			}
 
 			SlackWebhookController controller = loader.getController();
+=======
+			scene.getStylesheets().add(css);
+
+			keywordController controller = loader.getController();
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 			controller.setMainApp(this);
 			controller.setDialogStage(dialogStage);
 
 			
 			
+<<<<<<< HEAD
 			dialogStage.setScene(slackScene);
 			dialogStage.show();
 			
@@ -387,6 +429,9 @@ public class MainApp extends Application {
 			controller.setDialogStage(dialogStage, this, botController);
 			
 			dialogStage.setScene(instoreScene);
+=======
+			dialogStage.setScene(scene);
+>>>>>>> 624df5e6a043c3d053df7badcb64811464921010
 			dialogStage.show();
 			
 		} catch (IOException e) {
