@@ -3,8 +3,9 @@ package ch.makery.address.view;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -26,13 +27,13 @@ import javafx.stage.Stage;
 public class ProfileCreatorController {
 
 	@FXML
+	private TextField txtProfileName;
+	@FXML
 	private TextField txtFullName;
 	@FXML
 	private TextField txtEmail;
 	@FXML
 	private TextField keywords;
-	@FXML
-	private TextField txtProfileName;
 	@FXML
 	private TextField txtTelephone;
 	@FXML
@@ -66,6 +67,7 @@ public class ProfileCreatorController {
 
 	private ObservableList<String> profileList = FXCollections.observableArrayList();
 	private Stage dialogStage;
+	private SupremeBotOverviewController botController;
 	
 	//Combo box values
 	ObservableList<String> countryList = FXCollections.observableArrayList("UK", "UK (N.IRELAND)", "AUSTRIA", "BELARUS",
@@ -86,10 +88,8 @@ public class ProfileCreatorController {
 	@FXML
 	private void initialize() {
 		//Set combo box items at launch of window
-		profileList.add(Person.getPersonInfo().getProfileName());
-		cboProfileName.setItems(profileList);
-		cboProfileName.getSelectionModel().select(0);
-
+		
+		
 		cboCountry.setItems(countryList);
 		cboCountry.getSelectionModel().select(0);
 
@@ -108,9 +108,19 @@ public class ProfileCreatorController {
 	public void setDialogStage(Stage dialogStage) {
 		this.dialogStage = dialogStage;
 	}
+	
+	public void setProfileCreatorController(SupremeBotOverviewController controller2) {
+		this.botController = controller2;
+		
+		cboProfileName.setItems(botController.getProfileList());
+		cboProfileName.getSelectionModel().select(0);
+	}
+	
 
 	@FXML
 	public void setProfileDetails(ActionEvent action) throws IOException {
+		Person.getPersonInfo().setProfileName(txtProfileName.getText());
+		
 		Person.getPersonInfo().setFullName(txtFullName.getText());
 
 		Person.getPersonInfo().setEmail(txtEmail.getText());
@@ -141,6 +151,11 @@ public class ProfileCreatorController {
 		Person.getPersonInfo().JSONWriter();
 		
 		alertDialogBuilder("Information Dialog", "Save success", "Created new profile!");
+		
+		botController.consoleWriter("[" + new SimpleDateFormat("HH:mm:ss:SS").format(new Date()) + "] - " + "Successfully updated profile \n");
+		
+		botController.getProfileList().add(txtProfileName.getText());
+		
 
 		System.out.println(Person.getPersonInfo().toString());
 	}
@@ -151,8 +166,11 @@ public class ProfileCreatorController {
 		//Read in JSON from the Default_Profile file and set all values accordingly in text boxes.
 		JSONParser parser = new JSONParser();
 		
-		JSONObject a = (JSONObject) parser.parse(new FileReader(System.getProperty("user.dir")+ "/resources/json" + "/Default_Profile.json"));
+		JSONObject a = (JSONObject) parser.parse(new FileReader(System.getProperty("user.dir")+ "/resources/json" + "/" +  this.cboProfileName.getSelectionModel().getSelectedItem().toString()  + ".json"));
 
+		String profileName = (String) a.get("Profile Name");
+		txtProfileName.setText(profileName);
+		
 		String fullname = (String) a.get("Fullname");
 		txtFullName.setText(fullname);
 		
@@ -192,6 +210,8 @@ public class ProfileCreatorController {
 		String CardSecurityCode = (String) a.get("Card Security Code");
 		txtCvv.setText(CardSecurityCode);
 		
+		botController.consoleWriter("[" + new SimpleDateFormat("HH:mm:ss:SS").format(new Date()) + "] - " + "Successfully loaded profile \n");
+		
 	}
 
 	//Creates space inbetween the each 4 digits of the card input field
@@ -210,6 +230,7 @@ public class ProfileCreatorController {
 
 	@FXML
 	private void handleClearFields() {
+		txtProfileName.clear();
 		txtFullName.clear();
 		txtEmail.clear();
 		txtTelephone.clear();
