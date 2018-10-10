@@ -289,7 +289,8 @@ public class Selenium implements Runnable {
 				billingAddress = (String) a.get("Address");
 				billingCity  = (String) a.get("City");
 				billingPostcode  = (String) a.get("Postcode");
-				country = (String) a.get("Country");
+				country = "USA";
+				state = "CA";
 				cardType = (String) a.get("Card Type");
 				cardExpiry = (String) a.get("Card Expiry Month");
 				cardYear = (String) a.get("Card Expiry Year");
@@ -326,7 +327,7 @@ public class Selenium implements Runnable {
 				billingAddress = (String) a.get("Address");
 				billingCity  = (String) a.get("City");
 				billingPostcode  = (String) a.get("Postcode");
-				country = (String) a.get("Country");
+				//country = (String) a.get("Country");
 				cardType = (String) a.get("Card Type");
 				cardExpiry = (String) a.get("Card Expiry Month");
 				cardYear = (String) a.get("Card Expiry Year");
@@ -352,6 +353,11 @@ public class Selenium implements Runnable {
 				WebElement countryDropDown = driver.findElement(By.xpath("//*[@id=\"order_billing_country\"]"));
 				countryDropDown.click();
 				new Select(countryDropDown).selectByVisibleText(country);
+				
+				//try to select state
+				WebElement stateDropDown = driver.findElement(By.xpath("//*[@id=\"order_billing_state\"]"));
+				stateDropDown.click();
+				new Select(stateDropDown).selectByVisibleText(state);
 				
 				//Select Card Type
 				js.executeScript("$('select[name=\"credit_card[type]\"]').click();");
